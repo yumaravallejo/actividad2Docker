@@ -33,7 +33,9 @@ En este punto será donde necesitemos usar los módulos de proxy y proxy_http po
 ```
 Ahora deberás añadir los archivos .conf a la carpeta de /etc/apache2/sites-available para así poder activar cada uno de ellos usando:
 ```bash
- a2ensite nombrearchivo.conf
+ a2ensite www.aula2daw.com.conf
+ a2ensite www.bicicletas.com.conf
+ a2ensite www.coches.com.conf
 ```
 Cambiar el archivo hosts por el de tu máquina o simplemente añadir las rutas al tuyo, al igual que con el archivo ports que deberás poner Listen 8084 (o uno que sepas que no dará conflicto) en lugar de la 8080.
 
@@ -45,7 +47,9 @@ Para las pruebas de rendimiento haremos uso de Apache Bench, si no lo tienes ins
 ```bash
  sudo apt install apache2-utils 
 ```
-Tras instalarlo solo necesitaremos poner por cada una de nuestras páginas lo siguiente (cambiando el nombre por el nombre del dominio):
+Tras instalarlo solo necesitaremos poner por cada una de nuestras páginas lo siguiente:
 ```bash
-  ab -n 1000 -c 10 http://www.nombre.es/
+  ab -n 1000 -c 10 http://www.aula2daw.es/
+  ab -n 1000 -c 10 http://www.bicicletas.es/
+  ab -n 1000 -c 10 http://www.coches.es/
 ```
